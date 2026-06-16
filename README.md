@@ -1,6 +1,6 @@
 # 🚀 EduRoute: The Unified Learning Ecosystem
 
-<p align="center">
+<p align="center"> 
   <img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=700&size=32&duration=3000&pause=1000&color=00C853&center=true&vCenter=true&width=900&lines=EduRoute+%7C+The+Unified+Learning+Ecosystem;AI-Powered+Learning+Platform;Learn+Smarter+%7C+Focus+Longer+%7C+Remember+Better;Built+for+Students+from+Grade+6+to+12" />
 </p>
 
