@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0B0D11;
+    color: #E2E4E9;
+    font-family: 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background-color: #FF8A00;
+    color: #0B0D11;
+  }
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0D11;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2C313D;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF8A00;
+  }
+}
+
+@layer components {
+  /* ========== Scholar Components ========== */
+  .scholar-sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 text-muted hover:text-text-main hover:bg-surface transition-colors border-l-2 border-transparent text-sm font-medium cursor-pointer;
+  }
+  .scholar-sidebar-link.active {
+    @apply bg-surface-hover border-l-2 border-primary text-text-main;
+  }
+  .scholar-card {
+    @apply bg-surface border border-border p-6 rounded transition-all duration-200 hover:border-primary/40;
+  }
+  .scholar-btn-primary {
+    @apply bg-primary text-background font-semibold px-6 py-2.5 rounded text-sm uppercase tracking-wider hover:bg-[#FF9D2E] transition-colors flex items-center gap-2;
+  }
+  .scholar-btn-ghost {
+    @apply bg-surface border border-border text-text-main text-sm font-medium px-4 py-2 rounded hover:bg-surface-hover transition-colors;
+  }
+  .scholar-input {
+    @apply w-full bg-background border border-border rounded text-sm text-text-main placeholder-muted px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all;
+  }
+  .scholar-tag {
+    @apply text-xs font-mono text-primary border border-primary/30 bg-primary/5 hover:bg-primary/10 rounded px-2 py-1 transition-colors cursor-pointer;
+  }
+
+  /* ========== Explorer Components ========== */
+  .explorer-sidebar-link {
+    @apply flex items-center gap-3 px-6 py-3 text-muted hover:bg-surface-hover hover:text-text-main transition-colors duration-200 cursor-pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+  }
+  .explorer-sidebar-link.active {
+    @apply bg-surface-hover border-l-2 border-amber text-amber;
+  }
+  .bento-card {
+    @apply bg-surface border border-border-structural p-6 transition-all duration-300 cursor-pointer;
+  }
+  .bento-card:hover {
+    border-color: #ffb77f;
+  }
+  .explorer-btn-primary {
+    background-color: #ffb77f;
+    color: #0B0D11;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    @apply px-6 py-3 hover:brightness-110 active:scale-[0.98] transition-all uppercase;
+  }
+  .label-caps {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .display-lg {
+    font-family: 'Newsreader', serif;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+  .headline-md {
+    font-family: 'Newsreader', serif;
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  /* ========== Shared Utilities ========== */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+  .mat-fill {
+    font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+  .loading-bar {
+    @apply fixed top-0 left-0 h-[2px] bg-primary z-50 transition-all duration-500 ease-out;
+  }
+  .dot-grid-bg {
+    background-image: radial-gradient(#2C313D 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .gradient-fade-up {
+    background: linear-gradient(to top, #15181F, transparent);
+  }
+}
+
+/* ========== 3D Flashcard ========== */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.flashcard {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+.flashcard-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+/* ========== Timer Danger Animation ========== */
+@keyframes pulse-danger {
+  0% { color: #E2E4E9; text-shadow: none; }
+  50% { color: #FF3B30; text-shadow: 0 0 12px rgba(255, 59, 48, 0.6); }
+  100% { color: #E2E4E9; text-shadow: none; }
+}
+.timer-danger {
+  color: #FF3B30;
+  animation: pulse-danger 1s ease-in-out infinite;
+}
+
+/* ========== Glow effects ========== */
+.glow-amber {
+  box-shadow: 0 0 20px rgba(255, 183, 127, 0.35);
+}
+.glow-orange {
+  box-shadow: 0 0 20px rgba(255, 138, 0, 0.35);
+}
+
+/* ========== Resizer ========== */
+.resizer {
+  width: 4px;
+  background-color: transparent;
+  cursor: col-resize;
+  position: relative;
+  z-index: 10;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+.resizer:hover, .resizer.active {
+  background-color: #FF8A00;
+}
+.resizer::after {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #2C313D;
+}
+
+/* ========== Path / SVG Journey ========== */
+.path-connector {
+  stroke: #2C313D;
+  stroke-dasharray: 8 12;
+  stroke-width: 4;
+  fill: none;
+}
+.path-active {
+  stroke: #ffb77f;
+  stroke-opacity: 0.6;
+  stroke-width: 4;
+  fill: none;
+}
+
+/* ========== Loading Bar ========== */
+@keyframes loadBar {
+  0% { width: 0%; opacity: 1; }
+  70% { width: 100%; opacity: 1; }
+  100% { width: 100%; opacity: 0; }
+}
+.page-load-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: #FF8A00;
+  z-index: 9999;
+  animation: loadBar 0.8s ease-out forwards;
+}
